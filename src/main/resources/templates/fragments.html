@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
+<head th:fragment="head">
     <meta charset="UTF-8"/>
-    <title></title>
+    <title th:text="${title}">We Can Bete This!</title>
+
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
     <script type="text/javascript" th:src="@{/js/script.js}"></script>
 </head>
+
 <body>
-
-
+<header>
+    <nav th:fragment="navigation">
+        <a href="/home">Home</a> |
+        <a href="/login">Login</a> |
+        <a href="/register">Register</a> |
+        <a href="/blog">Stories</a> |
+        <a href="/tracking">Tracking</a>
+    </nav>
+</header>
 </body>
 </html>

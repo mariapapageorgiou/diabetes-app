@@ -16,13 +16,13 @@ public class UserController {
     @RequestMapping(value="login")
     public String login(Model model) {
 
-        return "projecthtml/login";
+        return "tracking/login";
     }
 
     @RequestMapping(value="register")
     public String register(Model model) {
 
-        return "projecthtml/registration";
+        return "tracking/registration";
     }
 
 
