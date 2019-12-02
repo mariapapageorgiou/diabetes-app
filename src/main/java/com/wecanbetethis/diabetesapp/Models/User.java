@@ -18,7 +18,9 @@ public class User {
     @Size(min = 1, max = 20, message = "Please enter a valid username")
     private String username;
 
-    @Email(message = "Invalid email address")
+    @NotNull
+    @Email
+    @Size(min = 5, message = "Invalid email address")
     private String email;
 
     @NotNull
@@ -28,21 +30,13 @@ public class User {
     @NotNull(message = "Passwords do not match")
     private String verifyPassword;
 
-    public User(int id, String username, String email, String password, String verifyPassword) {
-        this.id = id;
+    public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.verifyPassword = verifyPassword;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    public User() {}
 
     public String getUsername() {
         return username;
@@ -66,6 +60,7 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+        checkPassword();
     }
 
     public String getVerifyPassword() {
@@ -74,5 +69,13 @@ public class User {
 
     public void setVerifyPassword(String verifyPassword) {
         this.verifyPassword = verifyPassword;
+        checkPassword();
     }
+
+    public void checkPassword() {
+        if (password != null && verifyPassword != null && !password.equals(verifyPassword)) {
+            verifyPassword = null;
+        }
+    }
+
 }

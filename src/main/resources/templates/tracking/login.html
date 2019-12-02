@@ -4,21 +4,27 @@
     <meta charset="UTF-8"/>
     <title>Login Information</title>
 </head>
+
 <body>
+
 <header th:replace="fragments :: header"></header>
+
 <h2>Login Information</h2>
-<form method="post">
-    <table>
+
+<form method="post" th:object="${user}">
+    <table class="form-group">
         <tr>
-            <td><label>username</label></td>
+            <td><label th:for="*{username}">username</label></td>
             <td>
-                <input name="username" type="text">
+                <input class="form-control" th:field="*{username}"/>
+                <span th:errors="*{username}" class="error"></span>
             </td>
         </tr>
         <tr>
-            <td><label>password</label></td>
+            <td><label th:for="*{password}">password</label></td>
             <td>
-                <input name="password" type="password">
+                <input class="form-control" th:field="*{password}" type="password">
+                <span th:errors="*{password}" class="error"></span>
             </td>
         </tr>
         <tr>
