@@ -3,6 +3,9 @@ package com.wecanbetethis.diabetesapp.Models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class User {
@@ -10,15 +13,27 @@ public class User {
     @Id
     @GeneratedValue
     private int id;
+
+    @NotNull
+    @Size(min = 1, max = 20, message = "Please enter a valid username")
     private String username;
-    private String password;
+
+    @Email(message = "Invalid email address")
     private String email;
 
-    public User(int id, String username, String password, String email) {
+    @NotNull
+    @Size(min = 8, max = 20, message = "Password must be between 8 and 20 characters long")
+    private String password;
+
+    @NotNull(message = "Passwords do not match")
+    private String verifyPassword;
+
+    public User(int id, String username, String email, String password, String verifyPassword) {
         this.id = id;
         this.username = username;
-        this.password = password;
         this.email = email;
+        this.password = password;
+        this.verifyPassword = verifyPassword;
     }
 
     public int getId() {
@@ -37,6 +52,14 @@ public class User {
         this.username = username;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -45,11 +68,11 @@ public class User {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
+    public String getVerifyPassword() {
+        return verifyPassword;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setVerifyPassword(String verifyPassword) {
+        this.verifyPassword = verifyPassword;
     }
 }
