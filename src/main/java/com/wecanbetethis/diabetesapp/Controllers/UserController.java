@@ -37,10 +37,22 @@ public class UserController {
         return "redirect:";
     }
 
-    @RequestMapping(value = "login")
-    public String login(Model model) {
-
-
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(Model model, int userId) {
+//        User user = new User();
+//        model.addAttribute("user", user);
+        model.addAttribute("user", userDao.findById(userId));
+//        model.addAttribute("user", userDao.findAll());
         return "tracking/login";
     }
+
+    @RequestMapping(value= "/login", method = RequestMethod.POST)
+    public String login(@ModelAttribute @Valid User newUser, Errors errors, Model model) {
+        if (errors.hasErrors()) {
+            model.addAttribute("title", "Login");
+            return "tracking/login";
+        }
+        return "redirect:";
+    }
+
 }
