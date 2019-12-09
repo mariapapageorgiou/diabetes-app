@@ -38,10 +38,10 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(Model model, int userId) {
-//        User user = new User();
-//        model.addAttribute("user", user);
-        model.addAttribute("user", userDao.findById(userId));
+    public String login(Model model) {
+        User user = new User();
+        model.addAttribute("user", user);
+//        model.addAttribute("user", userDao.findById(userId));
 //        model.addAttribute("user", userDao.findAll());
         return "tracking/login";
     }
