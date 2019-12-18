@@ -57,10 +57,18 @@ public class BlogController {
     }
 
     @RequestMapping(value = "remove", method= RequestMethod.GET)
-    public String removeBlog(Model model){
+    public String removeBlogForm(Model model){
         model.addAttribute("blogs", blogDao.findAll());
         model.addAttribute("title", "Remove your Blog");
         return "blog/remove";
+    }
+
+    @RequestMapping(value="remove", method=RequestMethod.POST)
+    public String postRemoveBlogForm(@RequestParam int[] ids) {
+        for (int id : ids) {
+            blogDao.delete(id);
+        }
+        return "redirect: blogs";
     }
 
 }

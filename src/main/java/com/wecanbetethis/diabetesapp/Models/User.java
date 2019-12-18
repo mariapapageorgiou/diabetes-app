@@ -85,11 +85,11 @@ public class User {
         }
     }
 
-//    public ArrayList<Blog> getBlogs() {
-//        return blogs;
-//    }
-//
-//    public void setBlogs(ArrayList<Blog> blogs) {
-//        this.blogs = blogs;
-//    }
+    public List<Blog> getBlogs() {
+        return Blogs;
+    }
+
+    public void setBlogs(List<Blog> blogs) {
+        Blogs = blogs;
+    }
 }
