@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<meta charset="UTF-8"/>
+<title>Blogs</title>
+</head>
+
+<body>
+
+<header th:replace="fragments :: header"></header>
+
+<h2>Add your Blog</h2>
+
+<form method="post" th:object="${blog}">
+    <table class="form-group">
+        <tr>
+            <td><label th:for="*{title}">Title</label></td>
+            <td>
+                <input class="form-control" th:field="*{title}"/>
+                <span th:errors="*{title}" class="error"></span>
+            </td>
+        </tr>
+        <tr>
+            <td><label th:for="*{body}">Body</label></td>
+            <td>
+                <input class="form-control" th:field="*{body}" type="text">
+                <span th:errors="*{body}" class="error"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit">
+            </td>
+        </tr>
+    </table>
+
+</form>
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>

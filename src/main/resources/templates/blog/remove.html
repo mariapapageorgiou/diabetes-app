@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+</head>
+
+<body>
+
+<header th:replace="fragments :: header"></header>
+
+<h2>Remove your Blog</h2>
+
+<form method="post" th:object="${blog}">
+
+    <div th:for="*{title}" class="checkbox">
+        <input type="checkbox" name="blogIds" th:field="*{blog.id}" th:id="*{blog.id}"/>
+        <label th:for="*{blog.id}" th:text="*{title}"></label>
+        <br />
+    </div>
+
+    <input type="submit" value="Remove Blog" />
+</form>
+
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>

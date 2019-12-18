@@ -1,25 +1,21 @@
 package com.wecanbetethis.diabetesapp.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class User {
-
-    public int getId() {
-        return id;
-    }
 
     @Id
     @GeneratedValue
     private int id;
 
-    @NotBlank
+    @NotBlank(message = "")
     @Size(min = 1, max = 20, message = "Please enter a valid username")
     private String username;
 
@@ -31,8 +27,13 @@ public class User {
     @Size(min = 8, max = 20, message = "Password must be between 8 and 20 characters long")
     private String password;
 
+
     @NotNull(message = "Passwords do not match")
     private String verifyPassword;
+
+    @OneToMany
+    @JoinColumn(name="blog_id")
+    private List<Blog> Blogs = new ArrayList<>();
 
     public User(String username, String email, String password) {
         this.username = username;
@@ -41,6 +42,10 @@ public class User {
     }
 
     public User() {}
+
+    public int getId() {
+        return id;
+    }
 
     public String getUsername() { return username; }
 
@@ -80,4 +85,11 @@ public class User {
         }
     }
 
+//    public ArrayList<Blog> getBlogs() {
+//        return blogs;
+//    }
+//
+//    public void setBlogs(ArrayList<Blog> blogs) {
+//        this.blogs = blogs;
+//    }
 }
