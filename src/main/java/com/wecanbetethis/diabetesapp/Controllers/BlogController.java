@@ -30,7 +30,7 @@ public class BlogController {
     public String index(Model model) {
 
         model.addAttribute("blogs", blogDao.findAll());
-
+        model.addAttribute("title","Blogs");
         return "blog/index";
     }
 
@@ -43,15 +43,14 @@ public class BlogController {
     }
 
     @RequestMapping(value="add", method = RequestMethod.POST)
-    public String postBlogForm(@ModelAttribute @Valid Blog newBlog, Errors errors, @RequestParam int userId, Model model) {
+    public String postBlogForm(@ModelAttribute @Valid Blog newBlog, Errors errors, Model model) {
 
         if (errors.hasErrors()) {
-            model.addAttribute("users", userDao.findAll());
+//            model.addAttribute("users", userDao.findAll());
             return "blog/add";
         }
-
-        Optional<User> user = userDao.findById(userId);
-        newBlog.setUser(user);
+//        User user = userDao.findByEmail(email);
+//        newBlog.setUser(user);
         blogDao.save(newBlog);
         return "redirect:/blogs";
     }
@@ -63,12 +62,12 @@ public class BlogController {
         return "blog/remove";
     }
 
-    @RequestMapping(value="remove", method=RequestMethod.POST)
-    public String postRemoveBlogForm(@RequestParam int[] ids) {
-        for (int id : ids) {
-            blogDao.delete(id);
-        }
-        return "redirect: blogs";
-    }
+//    @RequestMapping(value="remove", method=RequestMethod.POST)
+//    public String postRemoveBlogForm(@RequestParam int[] ids) {
+//        for (int id : ids) {
+//            blogDao.delete(id);
+//        }
+//        return "redirect: blogs";
+//    }
 
 }

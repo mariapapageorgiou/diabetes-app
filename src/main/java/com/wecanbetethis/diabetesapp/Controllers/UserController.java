@@ -10,6 +10,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 
@@ -23,9 +24,10 @@ public class UserController {
 //    @Autowired
 //    private BlogDao blogDao;
 
-    @RequestMapping(value="/home")
+    @RequestMapping(value = "/home")
     public String index(Model model) {
         model.addAttribute("users", userDao.findAll());
+        model.addAttribute("title", "Home");
         return "home";
     }
 
@@ -34,7 +36,7 @@ public class UserController {
     public String register(Model model) {
         User user = new User();
         model.addAttribute("user", user);
-        model.addAttribute("title","Registration");
+        model.addAttribute("title", "Registration");
         return "tracking/registration";
     }
 
@@ -58,13 +60,35 @@ public class UserController {
         return "tracking/login";
     }
 
-    @RequestMapping(value= "/login", method = RequestMethod.POST)
-    public String login(@ModelAttribute @Valid User newUser, Errors errors, Model model) {
-        if (errors.hasErrors()) {
-            model.addAttribute("title", "Login");
-            return "tracking/login";
-        }
-        return "redirect:/home";
-    }
 
+    @RequestMapping(value = "login", method = RequestMethod.POST)
+    public String login(@ModelAttribute User user, Model model, Errors errors) {
+        String username = user.getUsername();
+        String password = user.getPassword();
+
+        User foundUser = userDao.findByUsername(username);
+        if (foundUser != null && password.equals(foundUser.getPassword())) {
+            return "redirect:/home";
+        }
+        if (errors.hasErrors()) {
+            return "tracking/login";
+
+        }
+        model.addAttribute("invalidCredentials", true);
+        return "redirect:home";
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

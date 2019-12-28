@@ -14,15 +14,15 @@ public class Blog {
     private int id;
 
     @NotNull
-    @Size(min = 10, max = 50)
+    @Size(min = 5, max = 50)
     private String title;
 
     @NotNull
     @Size(min = 10, max = 1000)
     private String body;
-
-    @ManyToOne
-    private User user;
+//
+//    @ManyToOne
+//    private User user;
 
     public Blog(String title, String body) {
         this.title = title;
@@ -52,7 +52,7 @@ public class Blog {
         this.body = body;
     }
 
-    public void setUser(Optional<User> user) {
+    public void setUser(User user) {
     }
 
 //    public User getUser() {
