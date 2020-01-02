@@ -16,7 +16,7 @@
 <tr>
     <ul>
         <li th:each="blog : ${blogs}">
-            <a th:href="'/blogs/view' + ${blog.id}" th:text="${blog.title}"></a></li>
+            <a th:href="'/blogs/view/' + ${blog.id}" th:text="${blog.title}"></a></li>
     </ul>
 </tr>
 

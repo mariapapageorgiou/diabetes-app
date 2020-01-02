@@ -36,6 +36,10 @@ public class Blog {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -52,6 +56,6 @@ public class Blog {
         this.body = body;
     }
 
-    public void setUser(User user) {
-    }
+//    public void setUser(User user) {
+//    }
 }

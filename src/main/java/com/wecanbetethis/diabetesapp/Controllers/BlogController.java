@@ -3,7 +3,6 @@ package com.wecanbetethis.diabetesapp.Controllers;
 import com.wecanbetethis.diabetesapp.Models.Blog;
 import com.wecanbetethis.diabetesapp.Models.Data.BlogDao;
 import com.wecanbetethis.diabetesapp.Models.Data.UserDao;
-import com.wecanbetethis.diabetesapp.Models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,6 +30,16 @@ public class BlogController {
         return "blog/index";
     }
 
+    @RequestMapping(value = "view/{blogId}", method = RequestMethod.GET)
+    public String viewBlog(Model model, @PathVariable int blogId) {
+
+        Blog blog = blogDao.findById(blogId).get();
+        model.addAttribute("blog", blog);
+        model.addAttribute("blogId", blog.getId());
+
+        return "blog/view";
+    }
+
     @RequestMapping(value="add", method = RequestMethod.GET)
     public String addBlogForm(Model model) {
         model.addAttribute(new Blog());
@@ -49,14 +58,6 @@ public class BlogController {
 
         blogDao.save(newBlog);
         return "redirect:/blogs";
-    }
-
-    @RequestMapping(value = "view/{blogId}", method = RequestMethod.GET)
-    public String viewBlog(Model model, @PathVariable int blogId) {
-        Blog blog = blogDao.findById(blogId).get();
-        model.addAttribute("blog", blog);
-        model.addAttribute("blogId", blog.getId());
-        return "blog/view";
     }
 
     @RequestMapping(value = "remove", method= RequestMethod.GET)
