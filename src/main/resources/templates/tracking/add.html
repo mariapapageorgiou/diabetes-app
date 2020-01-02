@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title></title>
+<head th:replace="fragments :: head"></head>
+<!--    <title>Login Information</title>-->
 </head>
+
 <body>
 
+<header th:replace="fragments :: header"></header>
+
+<form method="post" th:object="${bloodsugar}">
+
+<div class="form-group">
+    <label th:for="entry"></label>
+    <select class="form-control" name="category" id="category">
+        <option>Fasting</option>
+        <option>Breakfast</option>
+        <option>Morning Snack</option>
+        <option>Lunch</option>
+        <option>Afternoon Snack</option>
+        <option>Dinner</option>
+        <option>Evening Snack</option>
+    </select>
+</div>
+    <div class="form-group">
+        <label th:for="bloodsugarentry"></label>
+        <input type="number" min="0" max="600" value="1">
+    </div>
+
+</form>
 <!--TODO create the add page for the blood sugar tracking-->
 
+<footer th:replace="fragments :: footer"></footer>
 </body>
 </html>
