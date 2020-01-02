@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title></title>
+<head th:replace="fragments :: head"></head>
 </head>
+
 <body>
 
-<h2 th:each="blog: ${blogs}" th:text="${blog.title}"></h2>
+<header th:replace="fragments :: header"></header>
 
-<p th:text="*{blog.body">
-<!--    <input type="checkbox" name="blogIds" th:value="*{blog.id}" th:id="*{blog.id}"/>-->
-<!--    <label th:for="*{blog.id}" th:text="${blog.title}"></label>-->
-</p>
+<h2 th:text="${blog.title}"></h2>
+<br>
+<br>
+
+<label th:for="body">Body:</label>
+<p th:text="*{blog.body}"></p>
 
 
-</body>
-
-<!--TODO need to create the view page for each blog-->
-
+<footer th:replace="fragments :: footer"></footer>
 </body>
 </html>

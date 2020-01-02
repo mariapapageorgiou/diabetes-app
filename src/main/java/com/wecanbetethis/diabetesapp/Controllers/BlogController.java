@@ -43,28 +43,20 @@ public class BlogController {
     public String postBlogForm(@ModelAttribute @Valid Blog newBlog, Errors errors, Model model) {
 
         if (errors.hasErrors()) {
-//            model.addAttribute("users", userDao.findAll());
+
             return "blog/add";
         }
-//        User user = userDao.findByEmail(email);
-//        newBlog.setUser(user);
+
         blogDao.save(newBlog);
         return "redirect:/blogs";
     }
 
     @RequestMapping(value = "view/{blogId}", method = RequestMethod.GET)
-    public String viewBlog(Blog blog, Model model, @PathVariable int blogId) {
-        String title= blog.getTitle();
+    public String viewBlog(Model model, @PathVariable int blogId) {
+        Blog blog = blogDao.findById(blogId).get();
         model.addAttribute("blog", blog);
-        model.addAttribute("title", blog.getTitle());
+        model.addAttribute("blogId", blog.getId());
         return "blog/view";
-//
-//        @RequestMapping(value = "view/{menuId}", method = RequestMethod.GET)
-//        public String viewMenu(Model model, @PathVariable int menuId) {
-//            Menu menu = menuDao.findOne(menuId);
-//            model.addAttribute("menu", menu);
-//            model.addAttribute("title", menu.getName());
-//            return "menu/view";
     }
 
     @RequestMapping(value = "remove", method= RequestMethod.GET)

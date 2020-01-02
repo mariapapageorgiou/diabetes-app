@@ -43,7 +43,6 @@ public class UserController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String register(@ModelAttribute @Valid User newUser, Errors errors, Model model) {
         if (errors.hasErrors()) {
-//            model.addAttribute("title", "Register");
             return "tracking/registration";
         }
         userDao.save(newUser);
@@ -52,11 +51,10 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model) {
-//        User user = new User();
+
         model.addAttribute("users", userDao.findAll());
         model.addAttribute("title", "LogIn Information");
-//        model.addAttribute("user", userDao.findById(userId));
-//        model.addAttribute("user", userDao.findAll());
+
         return "tracking/login";
     }
 
