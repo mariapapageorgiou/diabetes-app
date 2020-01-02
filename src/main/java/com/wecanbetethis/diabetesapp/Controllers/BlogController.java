@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Optional;
@@ -53,6 +50,21 @@ public class BlogController {
 //        newBlog.setUser(user);
         blogDao.save(newBlog);
         return "redirect:/blogs";
+    }
+
+    @RequestMapping(value = "view/{blogId}", method = RequestMethod.GET)
+    public String viewBlog(Blog blog, Model model, @PathVariable int blogId) {
+        String title= blog.getTitle();
+        model.addAttribute("blog", blog);
+        model.addAttribute("title", blog.getTitle());
+        return "blog/view";
+//
+//        @RequestMapping(value = "view/{menuId}", method = RequestMethod.GET)
+//        public String viewMenu(Model model, @PathVariable int menuId) {
+//            Menu menu = menuDao.findOne(menuId);
+//            model.addAttribute("menu", menu);
+//            model.addAttribute("title", menu.getName());
+//            return "menu/view";
     }
 
     @RequestMapping(value = "remove", method= RequestMethod.GET)

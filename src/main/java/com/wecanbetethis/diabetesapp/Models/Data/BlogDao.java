@@ -8,7 +8,4 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 public interface BlogDao extends CrudRepository<Blog, Integer> {
-//    Object findAllById(Blog blogId);
-//
-//    void delete(int blogId);
 }

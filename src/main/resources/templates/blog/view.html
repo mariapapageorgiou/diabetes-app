@@ -6,6 +6,15 @@
 </head>
 <body>
 
+<h2 th:each="blog: ${blogs}" th:text="${blog.title}"></h2>
+
+<p th:text="*{blog.body">
+<!--    <input type="checkbox" name="blogIds" th:value="*{blog.id}" th:id="*{blog.id}"/>-->
+<!--    <label th:for="*{blog.id}" th:text="${blog.title}"></label>-->
+</p>
+
+
+</body>
 
 <!--TODO need to create the view page for each blog-->
 

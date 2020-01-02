@@ -15,9 +15,11 @@
 
 <tr th:each="blog : ${blogs}">
     <ul>
-        <li><a href="blog/view + ${blog.id}" th:text="${blog.title}"></a></li>
+        <li><a href="@{'blogs/view' + ${blog.id}}" th:text="${blog.title}"></a></li>
     </ul>
 </tr>
+
+<!--<a th:href="@{'/menu/view/' + ${menu.id}}" th:text="${menu.name}"></a>-->
 
 <a href="/blogs/add">Add a blog</a>
 
