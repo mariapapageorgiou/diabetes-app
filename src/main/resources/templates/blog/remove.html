@@ -9,12 +9,12 @@
 
 <h2>Remove your Blog</h2>
 
-<form method="post" th:object="${blog}">
+<form method="post">
 
-    <div th:for="*{title}" class="checkbox">
-        <input type="checkbox" name="blogIds" th:field="*{blog.id}" th:id="*{blog.id}"/>
-        <label th:for="*{blog.id}" th:text="*{title}"></label>
-        <br />
+    <div th:each="blog : ${blogs}" class="checkbox">
+        <input type="checkbox" name="blogIds" th:value="*{blog.id}" th:id="*{blog.id}"/>
+        <label th:for="*{blog.id}" th:text="${blog.title}"></label>
+        <br/>
     </div>
 
     <input type="submit" value="Remove Blog" />
