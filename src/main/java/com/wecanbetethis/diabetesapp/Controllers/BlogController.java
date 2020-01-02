@@ -37,7 +37,7 @@ public class BlogController {
     @RequestMapping(value="add", method = RequestMethod.GET)
     public String addBlogForm(Model model) {
         model.addAttribute(new Blog());
-        model.addAttribute("users",userDao.findAll());
+        model.addAttribute("blogs",blogDao.findAll());
         model.addAttribute("title", "Add your Blog");
         return "blog/add";
     }
@@ -55,12 +55,12 @@ public class BlogController {
         return "redirect:/blogs";
     }
 
-    @RequestMapping(value = "remove", method= RequestMethod.GET)
-    public String removeBlogForm(Model model){
-        model.addAttribute("blogs", blogDao.findAll());
-        model.addAttribute("title", "Remove your Blog");
-        return "blog/remove";
-    }
+//    @RequestMapping(value = "remove", method= RequestMethod.GET)
+//    public String removeBlogForm(Model model){
+//        model.addAttribute("blogs", blogDao.findAll());
+//        model.addAttribute("title", "Remove your Blog");
+//        return "blog/remove";
+//    }
 
 //    @RequestMapping(value="remove", method=RequestMethod.POST)
 //    public String postRemoveBlogForm(@RequestParam int[] ids) {

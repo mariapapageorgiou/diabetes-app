@@ -13,11 +13,12 @@
 
 <!-- TODO need to figure out the list of blogs-->
 
-<p th:unless="${blog} and ${blog.size()}">No posts yet!</p>
+<p th:unless="${blogs} and ${blogs.size()}">No posts yet!</p>
 
-
-<tr th:each="blog : ${blog}">
-    <a href="blog/view + ${blog.id}" th:text="${blog.title}"></a>
+<tr th:each="blog : ${blogs}">
+    <ul>
+        <li><a href="blog/view + ${blog.id}" th:text="${blog.title}"></a></li>
+    </ul>
 </tr>
 
 <a href="/blogs/add">Add a blog</a>
