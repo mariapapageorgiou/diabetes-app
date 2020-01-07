@@ -3,6 +3,7 @@ package com.wecanbetethis.diabetesapp.Models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class BloodSugar {
@@ -11,34 +12,41 @@ public class BloodSugar {
     @GeneratedValue
     private int id;
 
-//    public enum Entry {
-//        FASTING, BREAKFAST, MORNING_SNACK, LUNCH, AFTERNOON_SNACK, DINNER, EVENING_SNACK
-//    }
-//
-//    String Entry;
-//    Integer bloodSugarEntry;
-//
-//    public BloodSugar() {
-//    }
-//
-//    public BloodSugar(String entry, Integer bloodSugarEntry) {
-//        Entry = entry;
-//        this.bloodSugarEntry = bloodSugarEntry;
-//    }
-//
-//    public String getEntry() {
-//        return Entry;
-//    }
-//
-//    public void setEntry(String entry) {
-//        Entry = entry;
-//    }
-//
-//    public Integer getBloodSugarEntry() {
-//        return bloodSugarEntry;
-//    }
-//
-//    public void setBloodSugarEntry(Integer bloodSugarEntry) {
-//        this.bloodSugarEntry = bloodSugarEntry;
-//    }
+    @NotNull
+    private int numberEntry;
+
+    private Meals meals;
+
+    public BloodSugar(int numberEntry, Meals meals) {
+        this.numberEntry = numberEntry;
+        this.meals = meals;
+    }
+
+    public BloodSugar() {
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getNumberEntry() {
+        return numberEntry;
+    }
+
+    public void setNumberEntry(int numberEntry) {
+        this.numberEntry = numberEntry;
+    }
+
+    public Meals getMeals() {
+        return meals;
+    }
+
+    public void setMeals(Meals meals) {
+        this.meals = meals;
+    }
 }

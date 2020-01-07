@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title></title>
+<head th:replace="fragments :: head"></head>
+<meta charset="UTF-8"/>
+<title>Statistics</title>
 </head>
+
 <body>
 
-<!--TODO if there is time create a statistics page with average stats-->
+<header th:replace="fragments :: header"></header>
 
+<h2>Statistics of Entries</h2>
+
+<p th:unless="${bloodsugar} and ${bloodsugar.size()}">No Entries yet!</p>
+
+<tr>
+    <ul>
+        <li th:each="bloodsugar : ${bloodsugar}"
+            th:text="${bloodsugar.meals.name} + ${bloodsugar.numberEntry}"></li>
+    </ul>
+</tr>
+
+<a href="/tracking/add">Add an Entry</a>
+
+<footer th:replace="fragments :: footer"></footer>
 </body>
 </html>

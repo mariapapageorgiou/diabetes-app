@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body>
+
+<header th:replace="fragments :: header"></header>
+
+<h2 th:for="title">Title:</h2>
+<h2 th:text="${bloodSugar?.meals}"></h2>
+<br>
+<br>
+
+<label th:for="body">Value:</label>
+<p th:text="${bloodSugar?.numberEntry}"></p>
+
+
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>
