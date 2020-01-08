@@ -6,14 +6,16 @@
 
 <header th:replace="fragments :: header"></header>
 
-<h2 th:for="title">Title:</h2>
-<h2 th:text="${bloodSugar?.meals}"></h2>
+<h3 th:for="title">Title:</h3>
+<h3 th:text="${bloodSugar.meals.name}"></h3>
 <br>
 <br>
 
 <label th:for="body">Value:</label>
-<p th:text="${bloodSugar?.numberEntry}"></p>
+<p th:text="${bloodSugar.numberEntry}"></p>
 
+<!--<label th:for="date">Date:</label>-->
+<!--<p th:text="${bloodsugar.date}"></p>-->
 
 <footer th:replace="fragments :: footer"></footer>
 </body>

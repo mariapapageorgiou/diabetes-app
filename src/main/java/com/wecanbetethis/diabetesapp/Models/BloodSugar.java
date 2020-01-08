@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Entity
 public class BloodSugar {
@@ -15,11 +16,16 @@ public class BloodSugar {
     @NotNull
     private int numberEntry;
 
+    @NotNull
     private Meals meals;
+
+//    @NotNull
+//    private Date date;
 
     public BloodSugar(int numberEntry, Meals meals) {
         this.numberEntry = numberEntry;
         this.meals = meals;
+//        this.date = date;
     }
 
     public BloodSugar() {
@@ -49,4 +55,12 @@ public class BloodSugar {
     public void setMeals(Meals meals) {
         this.meals = meals;
     }
+
+//    public Date getDate() {
+//        return date;
+//    }
+//
+//    public void setDate(Date date) {
+//        this.date = date;
+//    }
 }

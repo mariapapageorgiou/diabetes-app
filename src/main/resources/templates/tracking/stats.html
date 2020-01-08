@@ -15,8 +15,10 @@
 
 <tr>
     <ul>
-        <li th:each="bloodsugar : ${bloodsugar}"
-            th:text="${bloodsugar.meals.name} + ${bloodsugar.numberEntry}"></li>
+        <li th:each="bloodsugar : ${bloodsugar}">
+            <a th:href="'/tracking/view/' + ${bloodsugar.id}"
+               th:text="${bloodsugar.meals.name} + ${bloodsugar.numberEntry}"></a> <!-- ${bloodsugar.date} + ':' + -->
+        </li>
     </ul>
 </tr>
 
