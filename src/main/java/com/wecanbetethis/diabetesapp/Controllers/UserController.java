@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 @RequestMapping(value="")
@@ -58,7 +59,6 @@ public class UserController {
         return "tracking/login";
     }
 
-
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String login(@ModelAttribute User user, Model model, Errors errors) {
         String username = user.getUsername();
@@ -75,6 +75,19 @@ public class UserController {
         model.addAttribute("invalidCredentials", true);
         return "redirect:home";
     }
+
+           //    NEED TO WORK ON FINDING USER BY ID
+//
+//    @RequestMapping(value="/login", method = RequestMethod.POST)
+//    public String login(@ModelAttribute User user, Model model, @RequestParam int userId) {
+//        if (user.getUsername()!= "" && user.getPassword()!= "") {
+//            Optional<User> founduser = userDao.findById(userId);
+//            if (founduser.getPassword().equals(user.getPassword())) {
+//                return "redirect:/home";
+//            }
+//        }
+//        return "tracking/login";
+//    }
 }
 
 

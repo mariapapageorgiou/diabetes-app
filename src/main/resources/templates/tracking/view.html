@@ -9,13 +9,15 @@
 <h3 th:for="title">Title:</h3>
 <h3 th:text="${bloodSugar.meals.name}"></h3>
 <br>
-<br>
 
 <label th:for="body">Value:</label>
 <p th:text="${bloodSugar.numberEntry}"></p>
 
-<!--<label th:for="date">Date:</label>-->
-<!--<p th:text="${bloodsugar.date}"></p>-->
+<label th:for="date">Date:</label>
+<p th:text="${bloodSugar.date}"></p>
+
+<label th:for="time">Time:</label>
+<p th:text="${bloodSugar.time}"></p>
 
 <footer th:replace="fragments :: footer"></footer>
 </body>

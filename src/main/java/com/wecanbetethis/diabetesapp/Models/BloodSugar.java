@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 
 @Entity
 public class BloodSugar {
@@ -13,24 +12,27 @@ public class BloodSugar {
     @GeneratedValue
     private int id;
 
-    @NotNull
+    @NotNull(message="Entry must be between 0 and 600")
     private int numberEntry;
+
+    @NotNull
+    private String date;
+
+    @NotNull
+    private String time;
 
     @NotNull
     private Meals meals;
 
-//    @NotNull
-//    private Date date;
-
-    public BloodSugar(int numberEntry, Meals meals) {
+    public BloodSugar(int numberEntry, Meals meals, String date, String time) {
         this.numberEntry = numberEntry;
+        this.date = date;
+        this.time = time;
         this.meals = meals;
-//        this.date = date;
     }
 
     public BloodSugar() {
     }
-
 
     public int getId() {
         return id;
@@ -48,6 +50,22 @@ public class BloodSugar {
         this.numberEntry = numberEntry;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
     public Meals getMeals() {
         return meals;
     }
@@ -55,12 +73,4 @@ public class BloodSugar {
     public void setMeals(Meals meals) {
         this.meals = meals;
     }
-
-//    public Date getDate() {
-//        return date;
-//    }
-//
-//    public void setDate(Date date) {
-//        this.date = date;
-//    }
 }

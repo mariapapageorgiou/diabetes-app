@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<meta charset="UTF-8"/>
-<title>Statistics</title>
-</head>
 
 <body>
 
@@ -17,7 +14,7 @@
     <ul>
         <li th:each="bloodsugar : ${bloodsugar}">
             <a th:href="'/tracking/view/' + ${bloodsugar.id}"
-               th:text="${bloodsugar.meals.name} + ${bloodsugar.numberEntry}"></a> <!-- ${bloodsugar.date} + ':' + -->
+               th:text="${bloodsugar.date} + ${bloodsugar.time} + ${bloodsugar.meals.name} + ${bloodsugar.numberEntry}"></a> <!-- ${bloodsugar.date} + ':' + -->
         </li>
     </ul>
 </tr>
