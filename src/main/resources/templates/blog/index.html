@@ -6,19 +6,20 @@
 
 <header th:replace="fragments :: header"></header>
 
-<h2>List of Blogs</h2>
+
+
+<h2 class="blog-title">List of Blogs</h2>
 
 <p th:unless="${blogs} and ${blogs.size()}">No posts yet!</p>
 
-<tr>
-    <ul>
+    <ul class="blog-list">
         <li th:each="blog : ${blogs}">
             <a th:href="'/blogs/view/' + ${blog.id}" th:text="${blog.title}"></a></li>
     </ul>
-</tr>
-
-<a href="/blogs/add">Add a post</a>
-<a href="/blogs/remove">Remove a post</a>
+<div class="right-div">
+    <a href="/blogs/add">Add a post</a> |
+    <a href="/blogs/remove">Remove a post</a>
+</div>
 
 <footer th:replace="fragments :: footer"></footer>
 </body>

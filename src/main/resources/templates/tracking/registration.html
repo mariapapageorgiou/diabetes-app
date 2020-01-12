@@ -9,28 +9,28 @@
 <form method="post" th:object="${user}">
     <table class="form-group">
         <tr>
-            <td><label th:for="*{username}">username</label></td>
+            <td><label th:for="*{username}">username:</label></td>
             <td>
                 <input class="form-control" th:field="*{username}" placeholder="Enter Username" name="username" required/>
                 <span th:errors="*{username}" class="error"></span>
             </td>
         </tr>
         <tr>
-            <td><label th:for="*{email}">e-mail</label></td>
+            <td><label th:for="*{email}">e-mail:</label></td>
             <td>
                 <input class="form-control" th:field="*{email}" placeholder="Enter E-mail Address" name="e-mail" required/>
                 <span th:errors="*{email}" class="error"></span>
             </td>
         </tr>
         <tr>
-            <td><label th:for="*{password}">password</label></td>
+            <td><label th:for="*{password}">password:</label></td>
             <td>
                 <input class="form-control" th:field="*{password}" type="password" placeholder="Enter Password" name="password" required/>
                 <span th:errors="*{password}" class="error"></span>
             </td>
         </tr>
         <tr>
-            <td><label th:for="*{verifyPassword}">verify password</label></td>
+            <td><label th:for="*{verifyPassword}">verify password:</label></td>
             <td>
                 <input class="form-control" th:field="*{verifyPassword}" type="password" placeholder="Verify Password" name="password" required>
                 <span th:errors="*{verifyPassword}" class="error"></span>
@@ -38,13 +38,13 @@
         </tr>
         <tr>
             <td>
-                <input type="submit">
+                <input class="sub-btn" type="submit" value="Register Now">
             </td>
         </tr>
     </table>
 </form>
 <br>
-<label form="text">Already have an account? You can login <a href="/login">here.</a></label>
+<label class="account-link" type="text">Already have an account? You can login <a href="/login">here.</a></label>
 
 <footer th:replace="fragments :: footer"></footer>
 </body>

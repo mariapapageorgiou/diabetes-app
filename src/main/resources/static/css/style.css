@@ -1,0 +1,138 @@
+header h1 {
+    font-family: 'Amatic SC', cursive;
+    font-size: 110px;
+    text-align: center;
+}
+body {
+margin: 0cm 5cm;
+font-family: 'Amatic SC', cursive;
+}
+
+/* Navigation */
+ul.navigation {
+    font-family: 'Amatic SC', cursive;
+    font-size: 40px;
+    list-style-type: none;
+  /*  margin: 0cm 20cm; */
+    height: 80px;
+    width: 400px;
+    text-align: center;
+    padding: 0cm 15cm;
+    overflow: hidden;
+    background-color: white;
+}
+
+.navigation li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+ color: #1E90FF;
+}
+
+li .dropdown {
+  display: inline-block;
+}
+
+/* This is for the TRACKING  dropdown*/
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+h2{
+font-family: 'Amatic SC', cursive;
+font-size: 60px;
+margin: 3cm 0cm;
+}
+h2.stats-title {
+color: Violet;
+}
+h2.blog-title {
+color: #00cc66;
+}
+h2.add-entry {
+color: Tomato;
+}
+
+ul.blog-list {
+font-size: 30px;
+margin: 3cm 0cm;
+}
+
+ul.tracking-list {
+font-size: 30px;
+margin: 3cm 0cm;
+}
+
+.right-div {
+font-size:45px;
+bottom: 10cm;
+}
+
+table {
+text-align: left;
+font-size: 35px;
+}
+
+form, input.form-control, select.enum {
+text-align: center;
+font-size: 35px;
+font-family: 'Amatic SC', cursive;
+}
+
+option.form-control {
+font-size: 20px;
+}
+
+/*font-family: 'Baskervville', serif;
+font-family: 'Indie Flower', cursive;
+font-family: 'Shadows Into Light', cursive;
+font-family: 'Amatic SC', cursive;
+font-family: 'Kalam', cursive;
+*/
+
+.account-link {
+font-size: 40px;
+}
+
+.sub-btn{
+font-size: 35px;
+font-family: 'Amatic SC', cursive;
+}
+
+h2.track {
+margin:0cm 0cm;
+}
+
+
+footer {
+    font-family: 'Shadows Into Light', cursive;
+    margin: 3cm 0cm;
+}

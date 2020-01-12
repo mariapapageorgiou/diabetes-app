@@ -6,20 +6,18 @@
 
 <header th:replace="fragments :: header"></header>
 
-<h2>Statistics of Entries</h2>
+<h2 class="stats-title">Statistics of Entries</h2>
 
 <p th:unless="${bloodsugar} and ${bloodsugar.size()}">No Entries yet!</p>
 
-<tr>
-    <ul>
+    <ul class="tracking-list">
         <li th:each="bloodsugar : ${bloodsugar}">
             <a th:href="'/tracking/view/' + ${bloodsugar.id}"
                th:text="${bloodsugar.date} + ${bloodsugar.time} + ${bloodsugar.meals.name} + ${bloodsugar.numberEntry}"></a> <!-- ${bloodsugar.date} + ':' + -->
         </li>
     </ul>
-</tr>
 
-<a href="/tracking/add">Add an Entry</a>
+<label class="account-link"><a href="/tracking/add">Add an Entry</a></label>
 
 <footer th:replace="fragments :: footer"></footer>
 </body>

@@ -6,13 +6,15 @@
 
 <header th:replace="fragments :: header"></header>
 
-<h2 th:for="title">Title:</h2>
-<h2 th:text="${blog.title}"></h2>
-<br>
-<br>
+<h2 th:for="title"><span style="color:#00cc66; font-size:65px;">Title:  </span><span th:text="${blog.title}"></span></h2>
 
-<label th:for="body">Body:</label>
-<p th:text="*{blog.body}"></p>
+<!--<label th:for="body">Body:</label>-->
+<p style="font-size:50px;" th:text="*{blog.body}"></p>
+
+<div class="right-div">
+    <a href="/blogs/add">Add a post</a>
+    <a href="/blogs/remove">Remove a post</a>
+</div>
 
 
 <footer th:replace="fragments :: footer"></footer>

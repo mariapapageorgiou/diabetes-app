@@ -8,7 +8,7 @@
 
 <h2>Remove your Blog</h2>
 
-<form method="post">
+<form method="post" class="form-group">
 
     <div th:each="blog : ${blogs}" class="checkbox">
         <input type="checkbox" name="blogIds" th:value="*{blog.id}" th:id="*{blog.id}"/>
@@ -16,7 +16,7 @@
         <br/>
     </div>
 
-    <input type="submit" value="Remove Blog" />
+    <input class="sub-btn" type="submit" value="Remove Story" />
 </form>
 
 <footer th:replace="fragments :: footer"></footer>

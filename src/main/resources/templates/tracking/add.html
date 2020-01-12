@@ -6,25 +6,27 @@
 
 <header th:replace="fragments :: header"></header>
 
+
+<h2 class="add-entry">Add your glucose tracking</h2>
 <form method="post" th:object="${bloodSugar}">
 
-    <table class="gorm-group">
+    <table class="form-group">
 
         <tr>
             <td><label th:for="date">Date:</label></td>
-            <td><input th:field="*{date}" type = "date"/></td>
+            <td><input class="form-control" th:field="*{date}" type = "date" required/></td>
         </tr>
 
         <tr>
             <td><label th:for="time">Time:</label></td>
-            <td><input th:field="*{time}" type = "time"/></td>
+            <td><input class="form-control" th:field="*{time}" type = "time" required/></td>
         </tr>
 
         <tr>
             <td><label th:for="title">Meal Choice:</label></td>
             <td>
                 <select name="meals" class="enum">
-                    <option th:each="meal : ${T(com.wecanbetethis.diabetesapp.Models.Meals).values()}"
+                    <option class="form-control" th:each="meal : ${T(com.wecanbetethis.diabetesapp.Models.Meals).values()}"
                         th:value="${meal}"
                         th:text="${meal.name}">
                     </option>
@@ -34,11 +36,11 @@
 
         <tr>
             <td><label th:for="numberentry">Blood Sugar Number:</label></td>
-            <td><input class="form-control" th:field="*{numberEntry}"/></td>
+            <td><input class="form-control" th:field="*{numberEntry}" required/></td>
         </tr>
 
         <tr>
-            <td><input type="submit" ></td>
+            <td><input class="sub-btn" type="submit" value="Track Now"></td>
         </tr>
 
     </table>

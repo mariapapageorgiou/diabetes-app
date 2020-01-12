@@ -6,18 +6,13 @@
 
 <header th:replace="fragments :: header"></header>
 
-<h3 th:for="title">Title:</h3>
-<h3 th:text="${bloodSugar.meals.name}"></h3>
+<h2 class="track" th:for="date">Date: <span th:text="${bloodSugar.date}"></span></h2>
 <br>
 
-<label th:for="body">Value:</label>
-<p th:text="${bloodSugar.numberEntry}"></p>
+<p style="font-size:50px;" th:for="title">Title:<span th:text="${bloodSugar.meals.name}"></span></p>
+<p style="font-size:50px;" th:for="body">Value: <span th:text="${bloodSugar.numberEntry}"></span></p>
 
-<label th:for="date">Date:</label>
-<p th:text="${bloodSugar.date}"></p>
-
-<label th:for="time">Time:</label>
-<p th:text="${bloodSugar.time}"></p>
+<label class="account-link"><a href="/tracking/add">Add an Entry</a></label>
 
 <footer th:replace="fragments :: footer"></footer>
 </body>
