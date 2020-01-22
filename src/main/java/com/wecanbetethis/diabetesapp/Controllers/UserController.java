@@ -45,9 +45,15 @@ public class UserController {
     public String register(@ModelAttribute @Valid User newUser, Errors errors, Model model) {
         if (errors.hasErrors()) {
             return "tracking/registration";
+
+            //   NEED TO FIGURE OUT A WAY TO CHECK FOR DUPLICATES
+//        } else if (userDao.findByUsername(newUser.getUsername())) {
+//            model.addAttribute("message", "Username exists. Try another user name");
+//            return "tracking/registration";
+        } else {
+            userDao.save(newUser);
+            return "redirect:/home";
         }
-        userDao.save(newUser);
-        return "redirect:/home";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)

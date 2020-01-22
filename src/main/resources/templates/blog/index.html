@@ -10,7 +10,7 @@
 
 <h2 class="blog-title">List of Blogs</h2>
 
-<p th:unless="${blogs} and ${blogs.size()}">No posts yet!</p>
+<h3 th:unless="${blogs} and ${blogs.size()}">No posts yet!</h3>
 
     <ul class="blog-list">
         <li th:each="blog : ${blogs}">

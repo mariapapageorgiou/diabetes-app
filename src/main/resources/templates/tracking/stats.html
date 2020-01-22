@@ -8,7 +8,7 @@
 
 <h2 class="stats-title">Statistics of Entries</h2>
 
-<p th:unless="${bloodsugar} and ${bloodsugar.size()}">No Entries yet!</p>
+<h3 th:unless="${bloodsugar} and ${bloodsugar.size()}">No Entries yet!</h3>
 
     <ul class="tracking-list">
         <li th:each="bloodsugar : ${bloodsugar}">
